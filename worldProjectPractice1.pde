@@ -1,10 +1,3 @@
-//todo notes:
-/* Have a list of countries and display their news information from https://world.einnews.com/ */
-
-/* NOTE: Plot point function works, however, it must be tested with real co ords because i think the texture may need to be offset */
-
-
-
 int n;
 int speed;
 float[][] points;
@@ -17,14 +10,14 @@ PShape globe;
 PImage earth_texture;
  
 void setup() { 
-  size(1000,1000,P3D); 
+  size(1800, 1800, P3D); 
   coord = new PVector();
   background(0); 
   
   canRefresh = true;
   
   n = 25;        // number of points
-  r = 400;        // sphere's radius
+  r = 600;        // sphere's radius
   t = 0;   // rotation accumulator
   
   speed = 10;       //speed
@@ -96,7 +89,7 @@ void plotPoint(float a_lat, float a_long)
 
 
 
-
+// this function refreshes the data feed at a given minute
 void refreshData()
 {
   if(canRefresh)
@@ -120,11 +113,13 @@ void refreshData()
 }
 
 //this prints RSS to console
-void readRSS(){
+void readRSS()
+{
   
   XML rss = loadXML("https://it.einnews.com/rss/Ds5YG_pF3PymkwhH");
   XML[] news = rss.getChildren("channel/item");
-  for(XML it : news){
+  for(XML it : news)
+  {
     XML header = it.getChild("title");
     println(header.getContent());
   }
