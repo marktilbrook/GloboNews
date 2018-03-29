@@ -1,0 +1,17 @@
+Tasks:
+  ✔ Implement threading  @done(2018-03-29 14:03) @project(Tasks)
+  ☐ Fix single plotting
+  ☐ Implement text display and check 3D for it
+
+
+
+
+
+
+Hotkeys:
+ctrl-enter: add a new todo item below the current
+ctrl-shift-enter: add a new todo item above the current
+ctrl-d: toggle completion of the task
+ctrl-shift-a: move all completed tasks to the archive section
+alt-c: cancel the selected tasks
+ctrl-shift-s: add/update timestamp for current task
