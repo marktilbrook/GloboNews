@@ -1,3 +1,4 @@
+
 int n;
 int speed;
 float[][] points;
@@ -40,9 +41,11 @@ void draw() {
   //lat -90 90     long -180 180
   plotPoint(-53.f,-97.f);
   plotPoint(-50.f,120.f);
+  
+  
     
   
-  
+  plotText("Hello");
   
   refreshData();
   
@@ -83,6 +86,17 @@ void plotPoint(float a_lat, float a_long)
     coord.y = r * cos(lat) * sin(lon);
     coord.z = r * sin(lat);
     point(coord.x, coord.y, coord.z);
+    
+    
+    
+}
+
+//plot text 
+void plotText(String text)
+{
+  textSize(80);
+  fill(255,0,0);
+  text(text, 12, 45, 600);  // Specify a z-axis value
   
 }
 
@@ -94,17 +108,17 @@ void refreshData()
 {
   if(canRefresh)
   {
-    if(minute() == 30)
+    if(minute() == 21)
     {
       canRefresh = false;
       println("refreshing data!");
-      //thread("readRSS");
+      thread("readRSS");
     }
   }
   
   if(!canRefresh)
   {
-    if(minute() == 5)
+    if(minute() == 30)
     {
       canRefresh = true;
       println("resetting bool");
@@ -116,7 +130,7 @@ void refreshData()
 void readRSS()
 {
   
-  XML rss = loadXML("https://it.einnews.com/rss/Ds5YG_pF3PymkwhH");
+  XML rss = loadXML("http://feeds.reuters.com/Reuters/worldNews");
   XML[] news = rss.getChildren("channel/item");
   for(XML it : news)
   {
