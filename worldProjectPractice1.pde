@@ -1,4 +1,6 @@
-
+/* ############################################################################
+             Copyright 2018, Mark Tilbrook, All rights reserved.
+############################################################################### */
 int n;
 int speed;
 float[][] points;
@@ -13,7 +15,7 @@ PImage earth_texture;
 void setup() { 
   size(1800, 1800, P3D); 
   coord = new PVector();
-  background(0); 
+  background(186, 186, 186); 
   
   canRefresh = true;
   
@@ -33,10 +35,18 @@ void setup() {
  
 void draw() { 
   
-  background(0);
+  background(186, 186, 186);
+  
+  textHeadline("Copyright 2018, Mark Tilbrook, All rights reserved.", width/2+400, 1700, 20); // footer
+  
+  
+  textHeadline("Venezuela opposition candidate's aide hit, suffers severe head injury", 200, 100, 40);
+  
+  
   translate(width/2, height/2); //centers earth
   rotateY(speed * radians(t += (TWO_PI / 365)));//change this to change speed of rotation
   shape(globe);
+  // anything below this will rotate with the globe
   
   //lat -90 90     long -180 180
   plotPoint(-53.f,-97.f);
@@ -45,9 +55,11 @@ void draw() {
   
     
   
-  plotText("Hello");
+  //plotText("Venezuela opposition candidate's aide hit, \n suffers severe head injury", 12, 45, 600, 20); //Venezuela opposition candidate's aide hit, suffers severe head injury
+  //plotText("Venezuela opposition candidate's aide hit, \n suffers severe head injury", 300, -450, 600, 20);
   
-  refreshData();
+  
+  refreshData(8);
   
   
   
@@ -92,23 +104,31 @@ void plotPoint(float a_lat, float a_long)
 }
 
 //plot text 
-void plotText(String text)
+void plotText(String text, int x, int y, int z, int size)
 {
-  textSize(80);
+  textSize(size);
   fill(255,0,0);
-  text(text, 12, 45, 600);  // Specify a z-axis value
+  text(text, x, y, z);  // Specify a z-axis value 12 45 600
   
+}
+
+void textHeadline(String text, int x, int y, int size)
+{
+ textSize(size);
+ fill(0);
+ text(text,x,y);
 }
 
 
 
 
-// this function refreshes the data feed at a given minute
-void refreshData()
+// this function refreshes the data.
+// the parameters are the minute of refresh
+void refreshData(int minute)
 {
   if(canRefresh)
   {
-    if(minute() == 21)
+    if(minute() == minute)
     {
       canRefresh = false;
       println("refreshing data!");
@@ -118,7 +138,7 @@ void refreshData()
   
   if(!canRefresh)
   {
-    if(minute() == 30)
+    if(minute() == minute + 2)
     {
       canRefresh = true;
       println("resetting bool");

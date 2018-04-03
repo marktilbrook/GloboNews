@@ -2,11 +2,13 @@ Tasks:
   ☐ Fix single plotting
   ☐ Work on text sizing and font
   ☐ Start country list and how to display plots based on text feed
-  ☐ Decide whether or not to have the text display around the world or in the 4 corners of the screen.
+  ✔ Decide whether or not to have the text display around the world or in the 4 corners of the screen. @done(2018-04-03 11:43) @project(Tasks)
+  ☐ Implement scrolling text at top of screen
 
 
   Notes:
     1. Single plotting does not work with real lat and long
+    2. Plotting based on text feed might be too hard?
 
 
 
