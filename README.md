@@ -1,3 +1,3 @@
 # GloboNews
-This is a University project. The idea is to display news information taken from an RSS feed and at different locations on the world map.
-This is done in processing and is a 3d model.
+This was a first year University project using Processing. The idea is to display news information taken from an RSS feed and pinpoint a target on a rotating globe model. This is just to show the code that I wrote.
+
